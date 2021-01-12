@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+iframe {
+    width: 1px;
+    height: 1px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+
+iframe {
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+html, body {
+    background-color: white;
+    overflow-x: hidden;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+}
