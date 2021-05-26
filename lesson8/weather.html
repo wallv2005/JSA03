@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            margin: auto;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form {
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            width: 15%;
+            background-color:rgb(255,209,220);
+            /* background: linear-gradient(to bottom, #33ccff 0%, #ff66ff 100%); */
+            padding: 30px;
+            border: 1px solid #ebebeb;
+            border-radius: 18px;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .temp {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: normal;
+            padding: 10px;
+        }
+
+        h3 {
+            font-size: 40px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <img src='./icons/icons/'>
+    </div>
+    <script>
+        //         const settings = {
+        // 	"async": true,
+        // 	"crossDomain": true,
+        // 	"url": "https://community-open-weather-map.p.rapidapi.com/weather?q=London%2Cuk&lat=0&lon=0&callback=test&id=2172797&lang=null&units=%22metric%22%20or%20%22imperial%22&mode=xml%2C%20html",
+        // 	"method": "GET",
+        // 	"headers": {
+        // 		"x-rapidapi-key": "SIGN-UP-FOR-KEY",
+        // 		"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+        // 	}
+        // };
+
+        // $.ajax(settings).done(function (response) {
+        // 	console.log(response);
+        // });
+
+        // const data = null;
+
+        // const xhr = new XMLHttpRequest();
+        // xhr.withCredentials = true;
+
+        // xhr.addEventListener("readystatechange", function () {
+        // 	if (this.readyState === this.DONE) {
+        // 		console.log(this.responseText);
+        // 	}
+        // });
+
+        // xhr.open("GET", "https://community-open-weather-map.p.rapidapi.com/weather?q=London%2Cuk&lat=0&lon=0&callback=test&id=2172797&lang=null&units=%22metric%22%20or%20%22imperial%22&mode=xml%2C%20html");
+        // xhr.setRequestHeader("x-rapidapi-key", "SIGN-UP-FOR-KEY");
+        // xhr.setRequestHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com");
+
+        // xhr.send(data);
+
+        // fetch("https://community-open-weather-map.p.rapidapi.com/weather?q=London%2Cuk&lat=0&lon=0&callback=test&id=2172797&lang=null&units=%22metric%22%20or%20%22imperial%22&mode=xml%2C%20html", {
+        // 	"method": "GET",
+        // 	"headers": {
+        // 		"x-rapidapi-key": "SIGN-UP-FOR-KEY",
+        // 		"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+        // 	}
+        // })
+        // .then(response => {
+        // 	console.log(response);
+        // })
+        // .catch(err => {
+        // 	console.error(err);
+        // });
+
+        // fetch('https://pokeapi.co/api/v2/pokemon/ditto').then(re => re.json()).then(data => console.log(data))
+        // let getData = async () => {
+        //             let preData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=7674da634845e7c2d8c53ab0a48b8e29`)
+        //             let data = await preData.json()
+        //             console.log(data)}
+
+
+        let getData = async () => {
+            let preData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=7674da634845e7c2d8c53ab0a48b8e29`)
+            let data = await preData.json()
+            console.log(data)
+            console.log(data.weather[0].icon);
+            let htmlDom = document.getElementById("box")
+            let Ktemp = data.main.temp
+            let Ctemp = Ktemp - 273.15
+            console.log(Ctemp);
+            let html = `        <form action="" class="form">
+            <h1>WEATHER</h1>
+            <img src="./icons/icons/${data.weather[0].icon}.png" class="icon" alt="">
+            <div class="temp">${Ctemp}°C</div>
+            <h2 class="description">${data.weather[0].description}</h2>
+            <h3>Hanoi</h3>
+        </form>`
+            htmlDom.innerHTML += html
+        }
+
+        getData()
+
+
+    </script>
+</body>
+
+</html>

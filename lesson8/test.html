@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- link font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <!-- font-family: 'Roboto', sans-serif; -->
+    <!-- font to hon -->
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form {
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            width: 15%;
+            background-color: whitesmoke;
+            padding: 30px;
+            border: 1px solid #ebebeb;
+            border-radius: 18px;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .temp {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: normal;
+            padding: 10px;
+        }
+
+        h3 {
+            font-size: 40px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <!-- <form action="">
+            <h1>WEATHER</h1>
+            <h2 class="thoiTiet"></h2>
+            <img src="./btvn_weatherAPI/icon/09n.png" class="icon" alt="">
+            <div class="temp"></div>
+            <h3>Hanoi</h3>
+        </form> -->
+    </div>
+    <script>
+        let getData = async () => {
+            let preData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=7674da634845e7c2d8c53ab0a48b8e29`)
+            let data = await preData.json()
+            console.log(data);
+            let htmlDom = document.getElementById("container")
+            let Ftemp = data.main.temp
+            let Ctemp = (Ftemp-32) / 1.8
+            console.log(Ctemp);
+            let html = `        <form action="" class="form">
+            <h1>WEATHER</h1>
+            <img src="./icon/${data.weather[0].icon}.png" class="icon" alt="">
+            <div class="temp">${data.main.temp}</div>
+            <h2 class="description">${data.weather[0].description}</h2>
+            <h3>Hanoi</h3>
+        </form>`
+            htmlDom.innerHTML += html
+        }
+        getData()
+    </script>
+</body>
+
+</html>
