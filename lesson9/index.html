@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+        <form id='inputcity' action="">
+
+            <div class="form-group">
+                <label for="pwd">City:</label>
+                <input type="text" class="form-control" id="pwd" name="city" placeholder="Input city name">
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    <script>
+        let form = document.getElementById('inputcity')
+        form.onsubmit = (e)=>{
+            e.preventDefault()
+            let city = form.city.value.trim()
+            localStorage.setItem('city', JSON.stringify(city))
+            window.open("./weather.html","_self");
+        }
+    </script>
+</body>
+
+</html>

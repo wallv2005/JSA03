@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <title>weather</title>
+    <style>
+        .container{
+        
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:100vh;
+            
+        }
+        .card{
+            background: linear-gradient(to bottom, #33ccff 0%, #ff66ff 100%);
+            width:300px;
+            text-align: center;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+
+    <!-- <h2>WEATHER</h2>
+    <img src="./icons/" alt="">
+    <h1>°C</h1>
+    <p>description</p>
+    <h3>hanoi</h3> -->
+
+</div>
+</div>
+<script>
+    let getData = async (city) => {
+            let preData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7674da634845e7c2d8c53ab0a48b8e29`)
+            let data = await preData.json()
+            console.log(data)
+            // console.log(data.weather[0].icon);
+            let dom = document.querySelector('.card')
+            let icon = data.weather[0].icon
+            let Ktemp = data.main.temp
+            let Ctemp = Math.floor(Ktemp - 273.15)
+            let description = data.weather[0].description
+            let location = data.name
+            let html = ` <h2>WEATHER</h2>
+    <img src="./icons/${icon}.png" alt="">
+    <h1>${Ctemp}°C</h1>
+    <p>${description}</p>
+    <h3>${location}</h3>
+`
+            dom.innerHTML = html
+            
+            ;}
+        let city = JSON.parse(localStorage.getItem('city'))
+        getData(city)
+</script>
+</body>
+</html>
