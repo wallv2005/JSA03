@@ -26,9 +26,10 @@
     <nav class="navbar navbar-fixed-top">
       <ul class="nav navbar-nav">
         <li><a id="len1" class="hoverable" href="#">Home</a></li>
-        <li><a id="len2" class="hoverable" href="#">About</a></li>
+        <li><a id="len2" class="hoverable" href="#introduction">About</a></li>
         <li><a id="len3" class="hoverable" href="#">Portfolio</a></li>
-        <li><a id="len4" class="hoverable" href="#">Contact</a></li>
+        <li><a id="len4" class="hoverable" href="#contact">Contact</a></li>
+        <li><a id="btnlogout" class="hoverable" href="home.html">Log Out</a></li>
       </ul>
     </nav>
   </div>
@@ -406,6 +407,29 @@
       return false;
     });
   </script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+<script src="app.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyA4k7xTnV69nGU-yhWRtBpm9r1Sw8QYrcw",
+    authDomain: "hermione-v.firebaseapp.com",
+    projectId: "hermione-v",
+    storageBucket: "hermione-v.appspot.com",
+    messagingSenderId: "868880718623",
+    appId: "1:868880718623:web:e9250eb40ad79ecec9ee2a",
+    measurementId: "G-43MBKW0C9P"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </body>
 
 </html>

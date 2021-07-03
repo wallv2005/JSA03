@@ -14,6 +14,7 @@
 
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -71,43 +72,30 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Tài Khoản</label>
-                <input type="email" name='email' class="form-control" id="exampleInputEmail1"
+                <input type="email" autocomplete="off" name='email' class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp" placeholder="Nhập Tài Khoản">
                 <small id="signIn-email-error" class="form-text text-muted error"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
-                <input type="password" name="pass" class="form-control" id="exampleInputPassword1"
+                <input type="password" autocomplete="off" name="pass" class="form-control" id="exampleInputPassword1"
                     placeholder="Nhập Mật Khẩu">
                 <small id="signIn-pass-error" class="form-text text-muted error"></small>
             </div>
-            <button type="submit" class="btn-1">Đăng Nhập</button>
+            <button id="btnsignin" type="submit" class="btn-1">Đăng Nhập</button>
 
             <div class="space-50"></div>
             <p>Bạn chưa có tài khoản <a href="./signup.html">Đăng ký?</a></p>
         </form>
     </div>
     <script>
-            // let users = [
-            //     {
-            //         name: "Nguyễn Văn Cường",
-            //         email: "a@a",
-            //         pass: "a"
-            //     },
-            //     {
-            //         name: "Nguyễn Trường Minh",
-            //         email: "b@a",
-            //         pass: "a"
-            //     }
-            // ]
-
-            // localStorage.setItem("users", JSON.stringify(users))
+          
 
 
-        let formSignIn = document.querySelector('#SignInForm')
+        let SignInForm = document.querySelector('#SignInForm')
 
         // let users = JSON.parse(localStorage.getItem("users"))
-        formSignIn.onsubmit = (e) => {
+        SignInForm.onsubmit = (e) => {
 
 
             e.preventDefault()
@@ -115,8 +103,8 @@
             if (users) {
 
 
-                let email = formSignIn.email.value.trim().toLowerCase();
-                let pass = formSignIn.pass.value.trim();
+                let email = SignInForm.email.value.trim().toLowerCase();
+                let pass = SignInForm.pass.value.trim();
 
                 for (let i = 0; i < users.length; i++) {
                     setTextError('#signIn-pass-error', '')
@@ -145,6 +133,7 @@
         }
 
     </script>
+    <script src="app.js"></script>
 </body>
 
 </html>

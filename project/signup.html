@@ -62,21 +62,21 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Họ Và Tên</label>
-                <input type="text" name ="name"class="form-control" placeholder="Nhập Họ Và Tên">
+                <input type="text" name ="name"class="form-control" autocomplete="off" placeholder="Nhập Họ Và Tên">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
               </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
+                <input type="email" name="email" class="form-control" autocomplete="off" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
-                <input type="password" name ="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Mật Khẩu">
+                <input type="password" name ="password" class="form-control" autocomplete="off" id="exampleInputPassword1" placeholder="Nhập Mật Khẩu">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Xác Nhận Mật Khẩu</label>
-                <input type="password" name="cfpassword"class="form-control" id="exampleInputPassword1" placeholder="Nhập Mật Khẩu">
+                <input type="password" name="cfpassword"class="form-control" autocomplete="off" id="exampleInputPassword1" placeholder="Nhập Mật Khẩu">
               </div>
               <button type="submit" class="btn-1">Đăng Ký</button>
 
@@ -111,6 +111,7 @@
         let check = arrayEmail.include(email)
         console.log(check)
     </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
