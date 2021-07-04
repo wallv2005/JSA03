@@ -14,8 +14,8 @@ if(isset($_POST['name']) && isset($_POST['email'])){
         $nFrom = "CV FeedBack";    
         $mFrom = 'nguyenvancuong215@gmail.com'; 
         $mPass = 'Menu00d1';       
-        $nTo = 'Nguyen Cuong'; 
-        $mTo = 'nguyencuong21520@gmail.com';   
+        $nTo = 'Dang T Van'; 
+        $mTo = 'peppermintmarcie2005@gmail.com';   
         $mail             = new PHPMailer();
         $body             = '<strong>Họ và tên:  </strong>'.$name.'<br>'.'<strong>Email:  </strong>'.$email.'<br>'.'<strong>Lời nhắn: </strong>'.$body;   // Noi dung email
         $title = 'CV FeedBack | '.$subject;  

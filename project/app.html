@@ -37,7 +37,7 @@
   <!-- intro -->
   <div class="intro" id="particles-js">
     <div class="intro-content">
-      <img class="avatar" src="./image/van1.jpg" alt="" />
+      <img id="img" class="avatar" src="./image/van1.jpg" alt="" />
       <h1 style="color: #eebbc3">Đặng Thanh Vân</h1>
       <ul class="social-accounts light list-inline mb-0 mt-4">
         <li class="list-inline-item">
@@ -318,7 +318,7 @@
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
-                <button class="button-submit" style="vertical-align: middle">
+                <button type="submit" name="submit" id="submit" value="Submit" class="button-submit" style="vertical-align: middle">
                   <span>Submit </span>
                 </button>
               </form>
@@ -381,7 +381,8 @@
       Typekit.load({ async: true });
     } catch (e) { }
 
-    $("#contact-form").on("submit", function (e) {
+    $("#contact-form").on('submit', function (e) {
+    // $("#submit").onclick = 
       e.preventDefault();
 
       var name = $("#InputName");
@@ -400,12 +401,12 @@
           body: body.val(),
         },
         success: function (data) {
-          //    sweetAlert(data.status,data.response);
+          sweetAlert(data.status,data.response);
           console.log("success");
         },
       });
       return false;
-    });
+    };
   </script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
@@ -414,6 +415,9 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
 <script src="app.js"></script>
+<script>
+
+</script>
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
